@@ -39,8 +39,6 @@
 
 ## 📸 Screenshots
 
-> Upload screenshots to your GitHub repo under the `assets` folder and link them below.
-
 ### 🏬 Home Page  
 ![Home Page](https://github.com/your-username/shopnest-app/assets/homepage.png)
 
@@ -57,5 +55,4 @@
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/shopnest-app.git
-cd shopnest-app
+git clone https://github.com/vpranavmadhu/shopNestApp.git
