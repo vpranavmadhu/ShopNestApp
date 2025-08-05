@@ -18,6 +18,8 @@ public class Category {
 	@Column
 	private String categoryName;
 	
+
+	
 	public Category() {
 		// TODO Auto-generated constructor stub
 	}
@@ -43,6 +45,9 @@ public class Category {
 	public void setCategoryName(String categoryName) {
 		this.categoryName = categoryName;
 	}
+
+	
+	
 	
 	
 	

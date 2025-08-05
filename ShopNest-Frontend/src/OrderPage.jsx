@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import  CategoryNavigation  from './CategoryNavigation';
-import  Header  from './Header';
-import  Footer  from './Footer';
+import CategoryNavigation from './CategoryNavigation';
+import Header from './Header';
+import Footer from './Footer';
 import './assets/styles.css';
 import { useNavigate } from 'react-router-dom';
+import { FaDotCircle } from "react-icons/fa";
 
 export default function OrdersPage() {
   const [orders, setOrders] = useState([]);
@@ -15,6 +16,24 @@ export default function OrdersPage() {
   const [isCartLoading, setIsCartLoading] = useState(true); // State for cart loading
 
   const navigate = useNavigate();
+
+  function formatDate(dateString) {
+    if (!dateString) return 'Invalid Date';
+
+    const date = new Date(dateString); // or new Date(dateString + 'Z') if you want UTC
+    if (isNaN(date)) return 'Invalid Date';
+
+    const options = { day: '2-digit', month: 'short', year: 'numeric' };
+    return date.toLocaleDateString('en-GB', options).replace(/ /g, ' - ');
+  }
+
+  function addDays(dateString, days) {
+    const date = new Date(dateString);
+    if (isNaN(date)) return null;
+
+    date.setDate(date.getDate() + days);
+    return date;
+  }
 
   useEffect(() => {
     fetchOrders();
@@ -63,47 +82,67 @@ export default function OrdersPage() {
 
   return (
     <div className="maindiv">
-    <div className="customer-homepage">
-      <Header
-        cartCount={isCartLoading ? '...' : cartError ? 'Error' : cartCount}
-        username={username}
-      />
-      <main className="main-content">
-        <button className='back-btn' onClick={handleClick}>← Back to shopping</button>
-        <h1 className="form-title">Your Orders</h1>
-        {loading && <p>Loading orders...</p>}
-        {error && <p className="error-message">{error}</p>}
-        {!loading && !error && orders.length === 0 && (
-          <p>No orders found. Start shopping now!</p>
-        )}
-        {!loading && !error && orders.length > 0 && (
-          <div className="orders-list">
-            {orders.map((order, index) => (
-              <div key={index} className="order-card">
-                <div className="order-card-header">
-                  <h3>Order Id : {order.order_id}</h3>
-                </div>
-                <div className="order-card-body">
-                  <img
-                    src={order.image_url}
-                    alt={order.name}
-                    className="order-product-image"
-                  />
-                  <div className="order-details">
-                    <h3 className="product-name">ProductName : {order.name}</h3>
-                    <h3>Description : {order.description}</h3>
-                    <h3>Quantity : {order.quantity}</h3>
-                    <h3>Price per Unit : ₹{order.price_per_unit.toFixed(2)}</h3>
-                    <h3>Total Price : ₹{order.total_price.toFixed(2)}</h3>
+      <div className="customer-homepage">
+        <Header
+          cartCount={isCartLoading ? '...' : cartError ? 'Error' : cartCount}
+          username={username}
+        />
+        <main className="main-orders">
+          {/* <h1 className="form-title">Your Orders</h1> */}
+          {loading && <p>Loading orders...</p>}
+          {error && <p className="error-message">{error}</p>}
+          {!loading && !error && orders.length === 0 && (
+            <p>No orders found. Start shopping now!</p>
+          )}
+          {!loading && !error && orders.length > 0 && (
+            <div className="orders-list">
+              {orders.map((order, index) => (
+                <div key={index} className="order-card">
+                  <div className="order-card-header">
+                    <img
+                      src={order.image_url}
+                      alt={order.name}
+                      className="order-product-image"
+                    />
                   </div>
+
+                  <div className="order-card-body">
+                    <p className="product-name">{order.name}</p>
+                    <div className='product-details'>
+                      <p>QTY: {order.quantity}</p>
+                      <p>₹{order.price_per_unit.toFixed(2)}</p>
+                    </div>
+
+                  </div>
+                  <div className='order-price'>
+                    <p>Total Price: ₹{order.total_price.toFixed(2)}</p>
+                    {/* <p>Ordered On: {formatDate(order.orderedOn)}</p> */}
+                  </div>
+
+                  <div className='order-card-tail'>
+                    {new Date() < addDays(order.orderedOn, 7) ? (
+                        <>
+                          <p> <span><FaDotCircle /></span> Delivery expected by {formatDate(addDays(order.orderedOn, 7))}</p>
+                          <p>Seller has processed your order.</p>
+                        </>
+                          
+                    ) : (
+                      <>
+                          <p> <span className='not-delivered'><FaDotCircle /></span> Delivery on {formatDate(addDays(order.orderedOn, 7))}</p>
+                          <p>Your item have been delivered.</p>
+                      </>
+                      
+                    )}
+
+                  </div>
+
                 </div>
-              </div>
-            ))}
-          </div>
-        )}
-      </main>
-      <Footer />
-    </div>
+              ))}
+            </div>
+          )}
+        </main>
+        <Footer />
+      </div>
     </div>
   );
 }

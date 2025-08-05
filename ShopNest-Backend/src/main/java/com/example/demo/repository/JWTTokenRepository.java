@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.demo.entity.JWTToken;
-import java.util.List;
+
 
 @Repository
 public interface JWTTokenRepository extends JpaRepository<JWTToken, Integer>{

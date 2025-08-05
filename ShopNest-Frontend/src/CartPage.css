@@ -20,6 +20,7 @@
   
   .cart-header {
     margin-bottom: 24px;
+    margin-top: 80px;
   }
   
   .cart-header h2 {
@@ -131,7 +132,8 @@
     border: none;
     padding: 8px;
     cursor: pointer;
-    color: #666;
+    color: #ffffff;
+    font-size: 20px;
   }
   
   .cart-container {
@@ -147,11 +149,10 @@
   .checkout-section {
     background: #fff;
     border-radius: 12px;
-    margin-top:40px ;
+    margin-top:80px ;
     padding: 24px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     height: fit-content;
-    position: sticky;
     top: 80px;
   }
   
@@ -235,6 +236,7 @@
   }
 
   .cart-page-empty {
+    margin-top: 10px;
     display: flex;
     justify-content: center;
     align-items: center;

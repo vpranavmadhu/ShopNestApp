@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./CartPage.css";
 import Header from "./Header";
 import Footer from "./Footer";
+import { MdDelete } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 
 const CartPage = () => {
@@ -222,9 +223,7 @@ const CartPage = () => {
       <Header cartCount={totalProducts()} username={username} />
       <div className="cart-container">
         <div className="cart-page">
-          <a href="/customerhome" className="back-button">
-            ← Shopping Continue
-          </a>
+          
 
           <div className="cart-header">
             <h2>Shopping Cart</h2>
@@ -255,7 +254,7 @@ const CartPage = () => {
                     </div>
                     <span className="price">₹{item.total_price}</span>
                     <button className="remove-btn" onClick={() => handleRemoveItem(item.product_id)}>
-                      🗑️
+                      < MdDelete />
                     </button>
                   </div>
                 </div>
@@ -263,7 +262,7 @@ const CartPage = () => {
             ))}
           </div>
           <div>
-            <button onClick={() => clearCart(username)} className="clearall-bttn">Clear Cart</button>
+            <button onClick={() => clearCart(username)} className="clearall-bttn">Clear All</button>
           </div>
         </div>
 

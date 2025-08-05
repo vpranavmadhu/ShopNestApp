@@ -15,4 +15,6 @@ public interface ProductRepository extends JpaRepository<Product, Integer>{
 	
 	@Query("SELECT p.category.categoryName FROM Product p where p.productId= :productId")
 	String findCategoryNameByProductId(int productId);
+	
+	List<Product> findByNameContainingIgnoreCase(String name);
 }

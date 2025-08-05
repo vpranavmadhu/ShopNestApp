@@ -12,7 +12,7 @@ export default function Logo() {
     }
   return (
     <div className='logo-container' onClick={handleClick}>
-      <img src={logo} alt="SalesSavvy Logo" className='logo-image' onError={(e) => {e.target.src = 'fallback-logo.png'}} />
+      <img src="/shopnest.png" alt="SalesSavvy Logo" className='logo-image' onError={(e) => {e.target.src = 'fallback-logo.png'}} />
       <span className='logo-text'>ShopNest</span>
       <h3>super saver</h3>
     </div>

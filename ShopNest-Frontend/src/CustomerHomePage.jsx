@@ -12,19 +12,38 @@ export default function CustomerHomePage() {
   const [username, setUsername] = useState('');
   const [cartError, setCartError] = useState(false);
   const [isCartLoading, setIsCartLoading] = useState(true);
+  const [search,setSearch] = useState('');
+  const [category,setCategory] = useState('');
 
-  
+  const handleCategoryClick = (selectedCategory) => {
+    setCategory(selectedCategory);
+    setSearch('');
+  }
+
+  console.log(search)
+
+
 
   useEffect(() => {
     fetchProducts();
     if (username) {
       fetchCartCount(); // fetch cart count only is username available
     }
-  }, [username]); // Re-run cart count only if username changes
+  }, [username,category,search]); // Re-run cart count only if username changes
 
-  const fetchProducts = async (category = '') => {
+  const fetchProducts = async () => {
     try {
-      const response = await fetch(`http://localhost:9090/api/products${category ? `?category=${category}` : `?category=Shirts`}`,
+
+      let url = `http://localhost:9090/api/products/all`;
+      if(search) {
+        url = `http://localhost:9090/api/products/name?name=${search}`
+      } else if(category){
+        url =  `http://localhost:9090/api/products?category=${category}`
+      }
+
+
+      // const response = await fetch(`http://localhost:9090/api/products${category ? `?category=${category}` : `?category=Shirts`}`// 
+        const response = await fetch(url,
         { credentials: 'include' }
       )
       const data = await response.json();
@@ -58,9 +77,9 @@ export default function CustomerHomePage() {
     }
   };
 
-  const handleCategoryClick = (category) => {
-    fetchProducts(category);
-  };
+  // const handleCategoryClick = (category) => {
+  //   fetchProducts(category);
+  // };
 
   const handleAddToCart = async (productId) => {
     if (!username) {
@@ -91,15 +110,15 @@ export default function CustomerHomePage() {
 
   return (
     <div className='customer-homepage'>
-      <Header 
+      <Header
         cartCount={isCartLoading ? '...' : cartError ? 'Error' : cartCount}
-        username={username} onChangeName={setUsername}
+        username={username} onChangeName={setUsername} setSearch={setSearch} search={search}
       />
-      <nav className='navigation'>
+      <div className='navigation'>
         <CategoryNavigation onCategoryClick={handleCategoryClick} />
-      </nav>
+      </div>
       <main className='main-content'>
-        <ProductList products={products} onAddToCart={handleAddToCart}/>
+        <ProductList products={products} onAddToCart={handleAddToCart} />
       </main>
       <Footer />
     </div>

@@ -38,6 +38,7 @@ public class OrderService {
 		 
 		 List<Map<String, Object>> products = new ArrayList<>();
 		 for(OrderItem item : orderItems) {
+			 
 			 Product product = productRepository.findById(item.getProductId()).orElse(null);
 			 if(product == null) {
 				 continue;
@@ -54,7 +55,7 @@ public class OrderService {
 			  productDetails.put("name", product.getName());
 			  productDetails.put("description", product.getDescription());
 			  productDetails.put("price_per_unit", item.getPricePerUnit());
-			  
+			  productDetails.put("orderedOn", item.getOrder().getUpdatedAt());
 			  products.add(productDetails);
 			  
 		 }

@@ -35,7 +35,7 @@ public class ProductService {
 			
 			return products;
 		} else {
-			throw new RuntimeException("Category not found");
+			return null;
 		}
 		} else {
 			return productRepository.findAll();
@@ -51,6 +51,19 @@ public class ProductService {
 		}
 		
 		return imageUrls;
+	}
+	
+	public List<Product> getAllProducts() {
+		
+		List<Product> products = productRepository.findAll();
+		
+		return products;
+	}
+	
+	public List<Product> getProductByName(String name) {
+		List<Product> products = productRepository.findByNameContainingIgnoreCase(name);
+		
+		return products;
 	}
 	
 }

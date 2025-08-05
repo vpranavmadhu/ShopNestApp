@@ -2,7 +2,9 @@ import React from 'react'
 
 export default function ProductList({products, onAddToCart}) {
     if(products.length === 0) {
-        return <p>No products available.</p>
+        return <div className='no-product'> 
+          <p>No products available.</p>
+          </div>
     }
   return (
     <div className='product-grid'>
@@ -14,7 +16,8 @@ export default function ProductList({products, onAddToCart}) {
                 e.target.src = 'https://picsum.photos/150';
             }} />
             <h3>{product.name}</h3>
-            <p>{product.price}</p>
+            <p>{product.description}</p>
+            <h3>₹{product.price} </h3>
             <button onClick={() => onAddToCart(product.product_id)}>Add to Cart </button>
         </div>    
       ))}

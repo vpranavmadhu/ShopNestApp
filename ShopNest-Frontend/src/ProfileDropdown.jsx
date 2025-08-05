@@ -1,8 +1,14 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate hook
 import useravatar from './useravatar.png';
+import { CgProfile } from "react-icons/cg";
+import { IoPersonSharp } from "react-icons/io5";
+import { CiHeart } from "react-icons/ci";
+import { RiCustomerService2Fill } from "react-icons/ri";
+import { GoTag } from "react-icons/go";
 import './assets/styles.css';
 import Profile from './Profile';
+import { FiLogOut } from "react-icons/fi";
 export default function ProfileDropdown({ username, onChangeName }) {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate(); // Initialize useNavigate hook
@@ -38,22 +44,20 @@ export default function ProfileDropdown({ username, onChangeName }) {
   
   return (
     <div className="profile-dropdown">
-      <a className="profile-button" onClick={toggleDropdown}>
-        <img
-          src={useravatar}
-          alt="User Avatar"
-          className="user-avatar"
-          onError={(e) => { e.target.src = 'fallback-logo.png'; }} // Fallback for image error
-        />
+      <div className="profile-button" onClick={toggleDropdown}>
+        <IoPersonSharp />
         <span className="username">{username || 'Guest'}</span> {/* Display username */}
-      </a>
+      </div>
       {isOpen && (
         <div className="dropdown-menu">
-          <a onClick={() => setShowProfile(true)}>Profile</a>
-          <a onClick={handleOrdersClick}>Orders</a> {/* Handle Orders Click */}
-          <button className="profile-button" onClick={handleLogout}>
-            Logout
-          </button>
+          <div className='dropdown-menuoptions'>
+            <div onClick={() => setShowProfile(true)} className='option'><CgProfile /> MyProfile</div> 
+            <div onClick={() => setShowProfile(true)} className='option'><CiHeart /> Wishlist</div>
+            <div onClick={() => setShowProfile(true)} className='option'><GoTag /> Coupons</div>
+            <div onClick={() => setShowProfile(true)} className='option'><RiCustomerService2Fill /> Service</div>
+            <div onClick={handleLogout} className='option'>Logout <FiLogOut /></div>
+          </div>
+          
         </div>
       )}
 
