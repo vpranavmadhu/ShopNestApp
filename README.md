@@ -50,7 +50,7 @@ An integrated **Admin Panel** allows the platform owner to manage products, user
 
 | Home Page | Product View | Admin Dashboard |
 |-----------|--------------|-----------------|
-| ![Home]()<img width="1896" height="865" alt="Screenshot 2025-08-07 210135" src="https://github.com/user-attachments/assets/e6a6b554-cd4d-4f0a-92fb-3a3492a93bfb" />
+| ![Home](<img width="1896" height="865" alt="Screenshot 2025-08-07 210135" src="https://github.com/user-attachments/assets/e6a6b554-cd4d-4f0a-92fb-3a3492a93bfb" />)
  | ![Product](./screenshots/product.png) | ![Admin](./screenshots/admin.png) |
 
 ---
