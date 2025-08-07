@@ -101,4 +101,6 @@ export default function Profile({ showProfile, setShowProfile, name , onChangeNa
       </div>
     </div>
   )
+
+  
 }

@@ -16,6 +16,7 @@ export default function ProfileDropdown({ username, onChangeName }) {
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
+    console.log(isOpen)
   };
   const handleLogout = async () => {
     try {
@@ -43,13 +44,12 @@ export default function ProfileDropdown({ username, onChangeName }) {
   
   
   return (
-    <div className="profile-dropdown">
+    <div className="profile-dropdown" onClick={() => setIsOpen(!isOpen)}>
       <div className="profile-button" onClick={toggleDropdown}>
         <IoPersonSharp />
         <span className="username">{username || 'Guest'}</span> {/* Display username */}
       </div>
-      {isOpen && (
-        <div className="dropdown-menu">
+      {/* <div className="dropdown-menu">
           <div className='dropdown-menuoptions'>
             <div onClick={() => setShowProfile(true)} className='option'><CgProfile /> MyProfile</div> 
             <div onClick={() => setShowProfile(true)} className='option'><CiHeart /> Wishlist</div>
@@ -57,6 +57,17 @@ export default function ProfileDropdown({ username, onChangeName }) {
             <div onClick={() => setShowProfile(true)} className='option'><RiCustomerService2Fill /> Service</div>
             <div onClick={handleLogout} className='option'>Logout <FiLogOut /></div>
           </div>
+      </div> */}
+
+      {isOpen && (
+       <div className="dropdown-menu">
+          <div className='dropdown-menuoptions'>
+            <div onClick={() => setShowProfile(true)} className='option'><CgProfile /> MyProfile</div> 
+            <div onClick={() => setShowProfile(true)} className='option'><CiHeart /> Wishlist</div>
+            <div onClick={() => setShowProfile(true)} className='option'><GoTag /> Coupons</div>
+            <div onClick={() => setShowProfile(true)} className='option'><RiCustomerService2Fill /> Service</div>
+            <div onClick={handleLogout} className='option'>Logout <FiLogOut /></div>
+          </div> 
           
         </div>
       )}

@@ -5,7 +5,7 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.5);
+    background: transparent;
     /* Dim background */
     display: flex;
     flex-direction: column;
@@ -22,7 +22,7 @@
     align-items: center;
     height: 500px;
     width: 600px;
-    background-color:rgb(216, 216, 216);
+    background-color: wheat;
     border-radius: 20px;
     box-shadow: 0 0 10px rgb(58, 58, 58);
 
@@ -34,6 +34,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: wheat;
     
 }
 .right-profile-card {
@@ -43,6 +44,7 @@
     flex-direction: column;
     gap: 20px;
     font-size: larger;
+    background-color: wheat;
 }
 
 .right-profile-card h2 {
