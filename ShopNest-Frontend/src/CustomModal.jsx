@@ -180,15 +180,18 @@ const CustomModal = ({ modalType, onClose, onSubmit, response }) => {
                 </div>
 
                 <div className="modal-form-item">
-                  <label htmlFor="categoryId">Category ID:</label>
-                  <input
-                    type="number"
-                    id="categoryId"
-                    name="categoryId"
-                    placeholder="Category ID"
-                    value={formData.categoryId}
-                    onChange={handleInputChange}
-                  />
+                  <label htmlFor="categoryId">Select Category:</label>
+                  <select name="categoryId" id="categoryid" value={formData.categoryId} onChange={handleInputChange}>
+                    <option value="" disabled>--SELECT--</option>
+                    <option value="1">Fashions</option>
+                    <option value="2">Home & Kitchen</option>
+                    <option value="3">TV & Appliances</option>
+                    <option value="4">Mobiles</option>
+                    <option value="5">Electronics</option>
+                    <option value="7">Furnitures</option>
+                  </select>
+
+                  
                 </div>
 
                 <div className="modal-form-item">

@@ -4,7 +4,8 @@
     padding: 20px;
     display: flex;
     flex-direction: column;
-    height: 100%;
+    height: auto;
+    background-color: rgb(246, 246, 246);
   }
   
   /* Back button styles */
@@ -40,6 +41,7 @@
     overflow-y: auto;
     max-height: calc(100vh - 200px);
     padding-right: 10px;
+    background-color: transparent;
   }
   
   .cart-item {
@@ -49,6 +51,12 @@
     background: #fff;
     border-radius: 12px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    
+  }
+
+  .cart-item:hover {
+    transform: scale(1.01);
   }
   
   .cart-item img {
@@ -144,6 +152,7 @@
     margin: 0 auto;
     padding: 20px;
     height: 100vh;
+    background-color: rgb(246, 246, 246);
   }
   
   .checkout-section {
@@ -154,6 +163,11 @@
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     height: fit-content;
     top: 80px;
+    transition: transform 0.3s ease;
+  }
+
+  .checkout-section:hover {
+    transform: scale(1.01);
   }
   
   .checkout-section h2 {

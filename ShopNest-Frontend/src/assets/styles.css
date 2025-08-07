@@ -229,9 +229,38 @@ nav button:hover {
   color: #666;
 }
 
-.product-card button {
+.product-price{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.product-price p {
+  text-decoration: line-through;
+  font-size: small;
+  color: rgb(147, 147, 147);
+}
+
+.product-price p:last-child {
+  color: green;
+  font-size: small;
+  font-weight: bold;
+  text-decoration: none;
+
+}
+
+.product-actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+}
+
+.product-actions-addtocart {
   margin-top: 12px;
-  background-color: #2874f0 !important;
+  background-color: #bc00fb !important;
   color: white;
   border: none;
   border-radius: 6px;
@@ -240,9 +269,29 @@ nav button:hover {
   transition: background-color 0.3s ease;
 }
 
-.product-card button:hover {
+.product-actions-addtocart:hover {
   background-color: #2964c2 !important;
 }
+.product-actions-wishlist{
+  background: none;
+  border: none;
+  outline: none;
+  padding-top: 15px;
+  margin: 0;
+  color: rgb(185, 185, 185);
+  font-size: 20px;
+  cursor: pointer;
+  background-color: transparent !important;
+  align-self: center;
+}
+
+.product-actions-wishlist:focus {
+  color: red;
+  outline: none;
+
+}
+
+
 
 /* Cart Icon */
 .cart-icon {
@@ -289,7 +338,7 @@ nav button:hover {
 }
 
 .profile-button {
-  color: rgb(11, 141, 254) !important;
+  color: #bc00fb !important;
   margin-right: 20px;
   font-size: 30px;
   display: inline-block;
@@ -358,7 +407,7 @@ nav button:hover {
 /* Header */
 .header {
   /* background-color: #ffffff; */
-  background: linear-gradient(to bottom, #d2f4ff, #ffffff);
+  background: linear-gradient(to bottom, #ece2ff, #ffffff);
   opacity: 90%;
   padding: 10px 20px;
   display: flex;
@@ -377,7 +426,7 @@ nav button:hover {
 }
 
 .logo:hover {
-  transform: scale(1.1);
+  transform: scale(1.01);
 }
 
 .header-actions {
@@ -464,6 +513,7 @@ nav button:hover {
 
 .category-item {
   height: 100px;
+  width: 9%;
   cursor: pointer;
   font-size: 16px;
   color: rgb(0, 0, 0);
@@ -487,7 +537,7 @@ nav button:hover {
 .category-item p {
   position: absolute;
   top: 60px;
-  left: 18%;
+  left: 11%;
   font-size: small;
   z-index: 1;
 }
@@ -505,7 +555,7 @@ nav button:hover {
 
 /* Main Content */
 .main-content {
-  margin-top: 100px;
+  margin-top: 40px;
   flex: 1;
   padding: 20px;
   text-align: center;
@@ -715,11 +765,11 @@ nav button:hover {
   align-items: center;
   cursor: pointer;
   padding-left: 20px;
-  transition: transform .05s ease-in;
+  transition: transform .03s ease;
 }
 
 .logo-container:hover {
-  transform: scale(1.05);
+  transform: scale(1.02);
 }
 
 .logo-container h3 {
@@ -1031,4 +1081,120 @@ nav button:hover {
 
 .order-icon:hover {
   transform: scale(1.1);
+}
+
+/* banners */
+
+.banners {
+  height: 200px;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.banners-main {
+  position: relative;
+  width: 90%;
+  height: 200px;
+  margin: auto;
+  overflow: hidden;
+}
+
+.banners-container {
+  display: flex;
+  transition: transform 0.7s ease-in-out;
+  height: 100%;
+}
+
+.banner-slide {
+  min-width: 100%;
+  height: 200px;
+}
+
+.banner-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Buttons */
+.prev-btn,
+.next-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.4);
+  border: none;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 50%;
+}
+
+.prev-btn {
+  left: 10px;
+}
+
+.next-btn {
+  right: 10px;
+}
+
+.prev-btn:hover,
+.next-btn:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+/* admin */
+
+.admin-dashboard-header {
+  background-color: #0078d4;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.admin-user-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding-left: 60px;
+  gap: 40px;
+
+}
+
+.admin-user-info span {
+  font-size: xx-large;
+  display: flex;
+  align-self: center;
+}
+
+.admin-dashboard-header-actions {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  padding-right: 50px;
+}
+
+.admin-dashboard-header-actions button {
+
+  background-color: transparent !important;
+  font-size: x-large;
+  transition: background-color .03s ease;
+
+}
+
+.admin-dashboard-header-actions button:hover {
+
+  background-color: #03518d !important;
+  transform: scale(1.03);
+
 }

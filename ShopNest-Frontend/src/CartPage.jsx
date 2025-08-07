@@ -207,11 +207,6 @@ const CartPage = () => {
         <div className="cart-page-empty">
           <h2>Your Cart is Empty</h2>
           <p>Add some items to get started!</p>
-          <div className="cart-page">
-            <button onClick={handleback} className="back-button">
-            ← Shopping Continue
-            </button>
-          </div>
         </div>
         <Footer />
       </div>

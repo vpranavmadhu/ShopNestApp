@@ -3,6 +3,7 @@ import Header from './Header';
 import CategoryNavigation from './CategoryNavigation';
 import './assets/styles.css'
 import ProductList from './ProductList';
+import Banners from './Banners';
 import Footer from './Footer';
 import { useNavigate } from 'react-router-dom';
 
@@ -36,9 +37,9 @@ export default function CustomerHomePage() {
 
       let url = `http://localhost:9090/api/products/all`;
       if(search) {
-        url = `http://localhost:9090/api/products/name?name=${search}`
+        url = `http://localhost:9090/api/products/name?name=${encodeURIComponent(search)}`
       } else if(category){
-        url =  `http://localhost:9090/api/products?category=${category}`
+        url =  `http://localhost:9090/api/products?category=${encodeURIComponent(category)}`
       }
 
 
@@ -116,6 +117,9 @@ export default function CustomerHomePage() {
       />
       <div className='navigation'>
         <CategoryNavigation onCategoryClick={handleCategoryClick} />
+      </div>
+      <div className='banners'>
+        <Banners />
       </div>
       <main className='main-content'>
         <ProductList products={products} onAddToCart={handleAddToCart} />

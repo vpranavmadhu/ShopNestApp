@@ -5,6 +5,9 @@ import  Footer  from "./Footer";
 import Logo from "./Logo";
 import "./assets/styles.css";
 import CustomModal from "./CustomModal";
+import { MdAdminPanelSettings } from "react-icons/md";
+import { AiOutlineLogout } from "react-icons/ai";
+import { RiCustomerService2Fill } from "react-icons/ri";
 
 const AdminDashboard = () => {
   const navigate = useNavigate();
@@ -329,15 +332,14 @@ const AdminDashboard = () => {
   return (
     <div className="admin-dashboard">
       {/* Header */}
-      <header className="dashboard-header">
-        <Logo />
-        <div className="user-info">
-          <span className="username">Admin</span>
-          <div className="dropdown">
-            <button className="dropdown-button" onClick={handleLogout}>
-              Logout
-            </button>
-          </div>
+      <header className="admin-dashboard-header">
+        <div className="admin-user-info" >
+          <h3>ADMIN DASHBOARD</h3>
+          <span><MdAdminPanelSettings /></span> 
+        </div>
+        <div className="admin-dashboard-header-actions">
+          <button><RiCustomerService2Fill /></button>
+          <button onClick={handleLogout}><AiOutlineLogout /> </button>
         </div>
       </header>
 

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './assets/styles.css'
 
 export default function CategoryNavigation({onCategoryClick}) {
-    const categories = ['Fashions', "Electronics", "Mobiles", "Appliances", "Furnitures","Home & Kitchen"];
+    const categories = ['Fashions', "Electronics", "Mobiles", "TV & Appliances", "Furnitures","Home & Kitchen"];
     const images = [
         'https://rukminim2.flixcart.com/fk-p-flap/64/64/image/ec2982e5564fe07c.png?q=100',
         'https://rukminim2.flixcart.com/fk-p-flap/64/64/image/4d6b13d5a0e0724a.png?q=100',

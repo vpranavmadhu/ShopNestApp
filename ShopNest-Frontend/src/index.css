@@ -30,6 +30,7 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   overflow-y: scroll;
+  background-color: rgb(246, 246, 246);
 }
 
 h1 {
