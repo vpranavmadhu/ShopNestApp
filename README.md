@@ -1,6 +1,6 @@
 # 🛍️ ShopNest
 
-**ShopNest** is a full-stack e-commerce web application that enables users to browse products, manage carts, place orders, and make payments. Built using **ReactJS (Vite)**, **Spring Boot**, **MySQL**, and **Razorpay API**, ShopNest offers a complete and smooth online shopping experience.
+**ShopNest** is a full-stack e-commerce web application that enables users to browse products, manage carts, place orders, and make payments. Built using **ReactJS (Vite)**, **Spring Boot**, and **MySQL**, ShopNest offers a complete and smooth online shopping experience.
 
 An integrated **Admin Panel** allows the platform owner to manage products, users, and view business analytics.
 
@@ -22,9 +22,7 @@ An integrated **Admin Panel** allows the platform owner to manage products, user
 - ➕ Add / ✏️ Edit / 🗑️ Delete Products
 - 👥 View & Update All Users
 - 📊 View Total Business Info:
-  - Daily, Weekly, Monthly, Yearly Revenue
-  - Total Orders, Cancellations
-  - Best-Selling Products
+- Daily, Weekly, Monthly, Yearly Revenue
 
 ### 🌐 Common
 - 🔐 JWT-based authentication
@@ -63,4 +61,4 @@ An integrated **Admin Panel** allows the platform owner to manage products, user
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/vpranavmadhu/shopnest.git
+git clone https://github.com/vpranavmadhu/ShopNestApp.git
